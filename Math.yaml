@@ -1,0 +1,58 @@
+{
+    "swagger": "2.0",
+	"info": {
+		"version": "1.0",
+		"title": "U.S.Energy Information Administration Swagger",
+		"description": "U.S.Energy Information Administration API services",
+		"license": {
+			"name": "MIT",
+			"url": "http://github.com/gruntjs/grunt/blob/master/LICENSE-MIT"
+		}
+	},
+	"host": "api.eia.gov",
+	"basePath": "",
+	"schemes": [
+		"http"
+	],
+	"consumes": [
+		"application/json"
+	],
+	"produces": [
+		"application/json",
+		"application/xml"
+	],
+	"paths": {
+		"/category": {
+			"get": {
+				"description": "Category",
+				"operationId": "http://api.eia.gov/category",
+				"produces": [
+					"application/json",
+					"application/xml"
+				],
+				"parameters": [
+					{
+						"name": "api_key",
+						"in": "query",
+						"description": "The API Key, required to make API requests to U.S. EIA API services.",
+						"required": false,
+						"type": "string"
+					},
+					{
+						"name": "category_id",
+						"in": "query",
+						"description": "Optional. Category ID is a unique numeric identifier of a category. If left blank the root category is fetched from the API, additional queries can be made using category IDs returned from this API call.",
+						"required": false,
+						"type": "integer",
+						"format": "int32"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "success"
+					}
+				}
+			}
+		}
+	}
+}
